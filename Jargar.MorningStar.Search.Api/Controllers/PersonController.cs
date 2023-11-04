@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Jargar.MorningStar.Search.Controllers;
+namespace Jargar.MorningStar.Search.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]

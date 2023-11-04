@@ -1,4 +1,4 @@
-namespace Jargar.MorningStar.Search;
+namespace Jargar.MorningStar.Search.Api;
 
 public record Person
 {
