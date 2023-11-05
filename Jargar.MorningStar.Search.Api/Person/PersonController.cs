@@ -1,8 +1,6 @@
 using Jargar.MorningStar.Search.Api.Person.Model;
-using Jargar.MorningStar.Search.Api.Person.Settings;
+using Jargar.MorningStar.Search.Api.Person.Search;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using System.Linq.Expressions;
 
 namespace Jargar.MorningStar.Search.Api.Person;
 
@@ -11,12 +9,12 @@ namespace Jargar.MorningStar.Search.Api.Person;
 public class PersonController : ControllerBase
 {
     private readonly ILogger<PersonController> _logger;
-    private readonly IPersonSettings _personSettings;
+    private readonly IPersonSearch _personSearch;
 
-    public PersonController(ILogger<PersonController> logger, IOptions<PersonSettings> personSettings)
+    public PersonController(ILogger<PersonController> logger, IPersonSearch personSearch)
     {
         _logger = logger;
-        _personSettings = personSettings.Value;
+        _personSearch = personSearch;
     }
 
     [HttpGet("api/get", Name = "GetPersons")]
@@ -43,15 +41,6 @@ public class PersonController : ControllerBase
             return Enumerable.Empty<PersonModel>();
         }
 
-        return SearchPersons(term);
-    }
-
-    private IEnumerable<PersonModel> SearchPersons(string searchTerm)
-    {
-        var persons = _personSettings.Persons;
-
-        searchTerm = searchTerm.Trim().ToLower();
-
-        return persons.Where(x => (x.FirstName.Trim() + " " + x.LastName.Trim() + " " + x.Email.Trim()).Trim().ToLowerInvariant().Contains(searchTerm));
+        return _personSearch.SearchPersons(term);
     }
 }

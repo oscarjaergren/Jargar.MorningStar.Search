@@ -4,5 +4,5 @@ namespace Jargar.MorningStar.Search.Api.Person.Settings;
 
 public class PersonSettings : IPersonSettings
 {
-    public required List<PersonModel> Persons { get; set; }
+    public List<PersonModel> Persons { get; set; }
 }

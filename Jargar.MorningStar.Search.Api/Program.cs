@@ -1,4 +1,4 @@
-using Jargar.MorningStar.Search.Api.Person.Model;
+using Jargar.MorningStar.Search.Api.Person.Search;
 using Jargar.MorningStar.Search.Api.Person.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +8,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Configuration.AddJsonFile("persons.json", optional: false);
-builder.Services.Configure<PersonSettings>(builder.Configuration.GetSection("PersonSettings"));
+var personSettings = builder.Configuration.GetSection("PersonSettings").Get<PersonSettings>(); 
+builder.Services.AddSingleton(personSettings);
+builder.Services.AddScoped<IPersonSearch, PersonSearchFast>();
 
 var app = builder.Build();
 
