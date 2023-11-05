@@ -2,6 +2,7 @@ using Jargar.MorningStar.Search.Api.Person.Model;
 using Jargar.MorningStar.Search.Api.Person.Settings;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using System.Linq.Expressions;
 
 namespace Jargar.MorningStar.Search.Api.Person;
 
@@ -50,9 +51,7 @@ public class PersonController : ControllerBase
         var persons = _personSettings.Persons;
 
         searchTerm = searchTerm.Trim().ToLower();
-        return persons.Where(person =>
-            person.FirstName.ToLower().Contains(searchTerm) ||
-            person.LastName.ToLower().Contains(searchTerm)
-        );
+
+        return persons.Where(x => (x.FirstName.Trim() + " " + x.LastName.Trim() + " " + x.Email.Trim()).Trim().ToLowerInvariant().Contains(searchTerm));
     }
 }
