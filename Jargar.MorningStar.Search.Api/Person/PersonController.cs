@@ -35,19 +35,19 @@ public class PersonController : ControllerBase
     }
 
     [HttpGet("api/search", Name = "SearchPersons")]
-    public IEnumerable<PersonModel> Search([FromQuery] string term)
+    public IEnumerable<PersonModel> Search([FromQuery] string? term)
     {
+        if (string.IsNullOrWhiteSpace(term))
+        {
+            return Enumerable.Empty<PersonModel>();
+        }
+
         return SearchPersons(term);
     }
 
     private IEnumerable<PersonModel> SearchPersons(string searchTerm)
     {
         var persons = _personSettings.Persons;
-
-        if (string.IsNullOrEmpty(searchTerm))
-        {
-            return new List<PersonModel>();
-        }
 
         searchTerm = searchTerm.Trim().ToLower();
         return persons.Where(person =>

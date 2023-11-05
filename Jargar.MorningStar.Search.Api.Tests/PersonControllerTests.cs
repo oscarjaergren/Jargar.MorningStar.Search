@@ -1,4 +1,5 @@
 using FluentAssertions;
+using Jargar.MorningStar.Search.Api.Person.Model;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
@@ -7,7 +8,7 @@ using System.Text.Json;
 
 namespace Jargar.MorningStar.Search.Api.Tests;
 
-public static class PersonControllerTests
+public static class TestFixture
 {
     public class ApiWebApplicationFactory : WebApplicationFactory<Program>
     {
@@ -18,11 +19,11 @@ public static class PersonControllerTests
         }
     }
 
-    public class WeatherForecastControllerTests : IClassFixture<ApiWebApplicationFactory>
+    public class PersonControllerTests : IClassFixture<ApiWebApplicationFactory>
     {
         private readonly ApiWebApplicationFactory _fixture;
 
-        public WeatherForecastControllerTests(ApiWebApplicationFactory fixture)
+        public PersonControllerTests(ApiWebApplicationFactory fixture)
         {
             _fixture = fixture;
         }
@@ -30,17 +31,60 @@ public static class PersonControllerTests
         [Fact]
         public async Task Get_Person_Returns_OK()
         {
-            var response =  await _fixture.CreateClient().GetAsync("/person/api/get");
+            var response = await _fixture.CreateClient().GetAsync("/person/api/get");
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
         [Theory]
-        [InlineData("James", new[] { "James Kubu", "James Pfieffer" })]
-        [InlineData("jam", new[] { "James Kubu", "James Pfieffer", "Chalmers Longfut" })]
-        [InlineData("Katey Soltan", new[] { "Katey Soltan" })]
-        [InlineData("Jasmine Duncan", new string[0])]
-        [InlineData("", new string[0])]
-        public async Task Search_Person_Returns_Expected_Results(string searchTerm, string[] expectedResults)
+        [InlineData("James")]
+        public async Task Search_Person_Returns_Results_For_James(string searchTerm)
+        {
+            var expectedResults = new[]
+            {
+                new PersonModel { Id = 8, FirstName = "James", LastName = "Kubu", Email = "hkubu7@craigslist.org", Gender = "Male" },
+                new PersonModel { Id = 11, FirstName = "James", LastName = "Pfeffer", Email = "bpfeffera@amazon.com", Gender = "Male" }
+            };
+
+            await RunTestAndAssertResults(searchTerm, expectedResults);
+        }
+
+        [Theory]
+        [InlineData("jam")]
+        public async Task Search_Person_Returns_Results_For_Jam(string searchTerm)
+        {
+            var expectedResults = new[]
+            {
+                new PersonModel { Id = 8, FirstName = "James", LastName = "Kubu", Email = "hkubu7@craigslist.org", Gender = "Male" },
+                new PersonModel { Id = 11, FirstName = "James", LastName = "Pfeffer", Email = "bpfeffera@amazon.com", Gender = "Male" },
+                new PersonModel { Id = 14, FirstName = "Chalmers", LastName = "Longfut", Email = "clongfujam@wp.com", Gender = "Male" }
+            };
+
+            await RunTestAndAssertResults(searchTerm, expectedResults);
+        }
+
+        [Theory]
+        [InlineData("Katey Soltan")]
+        public async Task Search_Person_Returns_Results_For_Katey_Soltan(string searchTerm)
+        {
+            var expectedResults = new[]
+            {
+                new PersonModel { Id = 18, FirstName = "Katey", LastName = "Soltan", Email = "ksoltanh@simplemachines.org", Gender = "Female" }
+            };
+
+            await RunTestAndAssertResults(searchTerm, expectedResults);
+        }
+
+        [Theory]
+        [InlineData("Jasmine Duncan")]
+        [InlineData("")]
+        public async Task Search_Person_Returns_No_Results(string searchTerm)
+        {
+            var expectedResults = Array.Empty<PersonModel>();
+
+            await RunTestAndAssertResults(searchTerm, expectedResults);
+        }
+
+        private async Task RunTestAndAssertResults(string searchTerm, PersonModel[] expectedResults)
         {
             // Arrange
             var client = _fixture.CreateClient();
@@ -51,12 +95,11 @@ public static class PersonControllerTests
             response.EnsureSuccessStatusCode();
 
             var content = await response.Content.ReadAsStringAsync();
-            var actualResults = JsonSerializer.Deserialize<string[]>(content, new JsonSerializerOptions
+            var actualResults = JsonSerializer.Deserialize<PersonModel[]>(content, new JsonSerializerOptions
             {
-                PropertyNameCaseInsensitive = true // Use this if the JSON property names are case-insensitive
+                PropertyNameCaseInsensitive = true,
             });
 
-            // Additional assertions for a more informative failure message
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             actualResults.Should().NotBeNull();
             actualResults.Should().BeEquivalentTo(expectedResults);
