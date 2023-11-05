@@ -1,5 +1,5 @@
-using System.Text.Json;
-using System.Text.Json.Serialization;
+
+using Newtonsoft.Json;
 
 namespace Jargar.MorningStar.Search.Api.Person.Model;
 
@@ -7,10 +7,12 @@ public record PersonModel
 {
     public required int Id { get; init; }
 
-    [JsonPropertyName("first_name")]
+    [JsonProperty(PropertyName = "first_name")]
+    [ConfigurationKeyName("first_name")]
     public required string FirstName { get; init; }
 
-    [JsonPropertyName("last_name")]
+    [JsonProperty(PropertyName = "last_name")]
+    [ConfigurationKeyName("last_name")]
     public required string LastName { get; init; }
 
     public required string Email { get; init; }

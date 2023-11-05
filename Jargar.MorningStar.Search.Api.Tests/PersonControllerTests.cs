@@ -42,10 +42,24 @@ public static class PersonControllerTests
         [InlineData("", new string[0])]
         public async Task Search_Person_Returns_Expected_Results(string searchTerm, string[] expectedResults)
         {
-            var response = await _fixture.CreateClient().GetAsync($"/person/api/search??term={Uri.EscapeDataString(searchTerm)}");
+            // Arrange
+            var client = _fixture.CreateClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, $"/person/api/search?term={searchTerm}");
 
+            // Act
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
 
-            response.Should().BeEquivalentTo(expectedResults);
+            var content = await response.Content.ReadAsStringAsync();
+            var actualResults = JsonSerializer.Deserialize<string[]>(content, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true // Use this if the JSON property names are case-insensitive
+            });
+
+            // Additional assertions for a more informative failure message
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+            actualResults.Should().NotBeNull();
+            actualResults.Should().BeEquivalentTo(expectedResults);
         }
     }
 }

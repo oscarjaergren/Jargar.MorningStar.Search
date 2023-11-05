@@ -1,3 +1,4 @@
+using Jargar.MorningStar.Search.Api.Person.Model;
 using Jargar.MorningStar.Search.Api.Person.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
