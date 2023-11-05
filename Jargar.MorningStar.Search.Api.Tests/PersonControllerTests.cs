@@ -30,7 +30,7 @@ public static class PersonControllerTests
         [Fact]
         public async Task Get_Person_Returns_OK()
         {
-            var response =  await _fixture.CreateClient().GetAsync("/Person");
+            var response =  await _fixture.CreateClient().GetAsync("/person/api/get");
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
@@ -42,19 +42,10 @@ public static class PersonControllerTests
         [InlineData("", new string[0])]
         public async Task Search_Person_Returns_Expected_Results(string searchTerm, string[] expectedResults)
         {
-            // Arrange
-            using var client = _fixture.CreateClient();
-            var request = new HttpRequestMessage(HttpMethod.Get, $"/api/person/search?term={Uri.EscapeDataString(searchTerm)}");
+            var response = await _fixture.CreateClient().GetAsync($"/person/api/search??term={Uri.EscapeDataString(searchTerm)}");
 
-            // Act
-            using var response = await client.SendAsync(request);
 
-            // Assert
-            response.EnsureSuccessStatusCode();
-            var content = await response.Content.ReadAsStringAsync();
-            var actualResults = JsonSerializer.Deserialize<string[]>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-
-            actualResults.Should().BeEquivalentTo(expectedResults);
+            response.Should().BeEquivalentTo(expectedResults);
         }
     }
 }
