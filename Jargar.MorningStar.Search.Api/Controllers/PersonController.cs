@@ -16,6 +16,8 @@ public class PersonController : ControllerBase
     [HttpGet(Name = "GetPersons")]
     public IEnumerable<Person> Get()
     {
+        _logger.LogInformation("Getting Persons");
+
         return Enumerable.Range(1, 5).Select(index => new Person
         {
             Id = index,
