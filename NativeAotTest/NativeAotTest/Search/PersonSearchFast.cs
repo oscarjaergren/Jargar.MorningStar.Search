@@ -5,9 +5,9 @@ namespace Jargar.MorningStar.Search.Api.Person.Search;
 
 public class PersonSearchFast : IPersonSearch
 {
-    private readonly IEnumerable<PersonModel> _personSettings;
+    private readonly PersonSettings _personSettings;
 
-    public PersonSearchFast(IEnumerable<PersonModel> personSettings)
+    public PersonSearchFast(PersonSettings personSettings)
     {
         _personSettings = personSettings;
     }
@@ -16,7 +16,7 @@ public class PersonSearchFast : IPersonSearch
     {
         searchTerm = searchTerm.Trim().ToLower();
 
-        foreach (var person in _personSettings)
+        foreach (var person in _personSettings.Persons)
         {
             var fullName = $"{person.FirstName} {person.LastName} {person.Email}".ToLowerInvariant();
             if (fullName.Contains(searchTerm))
