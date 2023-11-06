@@ -8,7 +8,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Configuration.AddJsonFile("persons.json", optional: false);
-var personSettings = builder.Configuration.GetSection("PersonSettings").Get<PersonSettings>(); 
+var personSettings = builder.Configuration.GetSection("PersonSettings").Get<PersonSettings>();
 builder.Services.AddSingleton(personSettings);
 builder.Services.AddScoped<IPersonSearch, PersonSearchFast>();
 

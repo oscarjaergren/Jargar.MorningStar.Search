@@ -12,7 +12,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jargar.MorningStar.Search.A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jargar.MorningStar.Search.Api.Tests", "Jargar.MorningStar.Search.Api.Tests\Jargar.MorningStar.Search.Api.Tests.csproj", "{905D6694-D3F4-454C-8DA1-2AFCE1377BD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jargar.MorningStar.Search.Api.Benchmark", "Jargar.MorningStar.Search.Api.Benchmark\Jargar.MorningStar.Search.Api.Benchmark.csproj", "{F3119471-08A1-4908-897E-5290E374801E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jargar.MorningStar.Search.Api.Benchmark", "Jargar.MorningStar.Search.Api.Benchmark\Jargar.MorningStar.Search.Api.Benchmark.csproj", "{F3119471-08A1-4908-897E-5290E374801E}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Jargar.MorningStar.Search.Website.Reactapp", "Jargar.MorningStar.Search.Website.ReactApp\Jargar.MorningStar.Search.Website.Reactapp.esproj", "{57E5B7C2-AFAA-4DB6-9FEA-21E3C07FC652}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,12 @@ Global
 		{F3119471-08A1-4908-897E-5290E374801E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3119471-08A1-4908-897E-5290E374801E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3119471-08A1-4908-897E-5290E374801E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57E5B7C2-AFAA-4DB6-9FEA-21E3C07FC652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57E5B7C2-AFAA-4DB6-9FEA-21E3C07FC652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57E5B7C2-AFAA-4DB6-9FEA-21E3C07FC652}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{57E5B7C2-AFAA-4DB6-9FEA-21E3C07FC652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57E5B7C2-AFAA-4DB6-9FEA-21E3C07FC652}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57E5B7C2-AFAA-4DB6-9FEA-21E3C07FC652}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

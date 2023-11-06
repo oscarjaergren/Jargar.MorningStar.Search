@@ -25,10 +25,10 @@ public class PersonController : ControllerBase
         return Enumerable.Range(1, 5).Select(index => new PersonModel
         {
             Id = index,
-            FirstName = "",
-            LastName = "",
+            FirstName = "Oscar",
+            LastName = "Jargren",
             Gender = "M",
-            Email = "",
+            Email = "oscar@noreply.com",
         })
         .ToArray();
     }
