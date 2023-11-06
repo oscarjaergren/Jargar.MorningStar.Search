@@ -18,6 +18,12 @@ EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Jargar.MorningStar.Search.Website.Reactapp", "Jargar.MorningStar.Search.Website.ReactApp\Jargar.MorningStar.Search.Website.Reactapp.esproj", "{57E5B7C2-AFAA-4DB6-9FEA-21E3C07FC652}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pictures", "Pictures", "{F06F4BCF-1F7E-49D0-8EB1-286A4CFBDCD2}"
+	ProjectSection(SolutionItems) = preProject
+		Pictures\benchmark.jpg = Pictures\benchmark.jpg
+		Pictures\searchresult.jpg = Pictures\searchresult.jpg
+		Pictures\testsuite.jpg = Pictures\testsuite.jpg
+		Pictures\website.jpg = Pictures\website.jpg
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
