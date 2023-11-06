@@ -20,6 +20,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pictures", "Pictures", "{F06F4BCF-1F7E-49D0-8EB1-286A4CFBDCD2}"
 	ProjectSection(SolutionItems) = preProject
 		Pictures\benchmark.jpg = Pictures\benchmark.jpg
+		Pictures\native-aot-benchmark.jpg = Pictures\native-aot-benchmark.jpg
+		Pictures\regular-benchmark.jpg = Pictures\regular-benchmark.jpg
 		Pictures\searchresult.jpg = Pictures\searchresult.jpg
 		Pictures\testsuite.jpg = Pictures\testsuite.jpg
 		Pictures\website.jpg = Pictures\website.jpg

@@ -22,7 +22,12 @@ A code editor or IDE of your choice (e.g., Visual Studio or Visual Studio Code)
 
 
 # Pictures
-![Image Alt Text](Pictures/benchmark.jpg)
+Native AOT
+![Image Alt Text](Pictures/native-aot-benchmark.jpg)
+
+Regular Project
+![Image Alt Text](Pictures/regular-benchmark.jpg)
+
 ![Image Alt Text](Pictures/website.jpg)
 ![Image Alt Text](Pictures/searchresult.jpg)
 ![Image Alt Text](Pictures/testsuite.jpg)
