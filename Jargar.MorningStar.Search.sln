@@ -3,12 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jargar.MorningStar.Search", "Jargar.MorningStar.Search\Jargar.MorningStar.Search.csproj", "{47BE2E51-8E23-40AD-AC7E-16278B9DF898}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{01636DB1-00A2-416B-8FDA-7E1B0F89709D}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jargar.MorningStar.Search.Api", "Jargar.MorningStar.Search.Api\Jargar.MorningStar.Search.Api.csproj", "{4CA6482F-5793-4DD3-BCC2-0A0850DEAF41}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jargar.MorningStar.Search.Api.Tests", "Jargar.MorningStar.Search.Api.Tests\Jargar.MorningStar.Search.Api.Tests.csproj", "{905D6694-D3F4-454C-8DA1-2AFCE1377BD1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jargar.MorningStar.Search.Api.Benchmark", "Jargar.MorningStar.Search.Api.Benchmark\Jargar.MorningStar.Search.Api.Benchmark.csproj", "{F3119471-08A1-4908-897E-5290E374801E}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Jargar.MorningStar.Search.Website.Reactapp", "Jargar.MorningStar.Search.Website.ReactApp\Jargar.MorningStar.Search.Website.Reactapp.esproj", "{57E5B7C2-AFAA-4DB6-9FEA-21E3C07FC652}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pictures", "Pictures", "{F06F4BCF-1F7E-49D0-8EB1-286A4CFBDCD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,13 +25,30 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{47BE2E51-8E23-40AD-AC7E-16278B9DF898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47BE2E51-8E23-40AD-AC7E-16278B9DF898}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47BE2E51-8E23-40AD-AC7E-16278B9DF898}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47BE2E51-8E23-40AD-AC7E-16278B9DF898}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CA6482F-5793-4DD3-BCC2-0A0850DEAF41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CA6482F-5793-4DD3-BCC2-0A0850DEAF41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CA6482F-5793-4DD3-BCC2-0A0850DEAF41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CA6482F-5793-4DD3-BCC2-0A0850DEAF41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{905D6694-D3F4-454C-8DA1-2AFCE1377BD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{905D6694-D3F4-454C-8DA1-2AFCE1377BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{905D6694-D3F4-454C-8DA1-2AFCE1377BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{905D6694-D3F4-454C-8DA1-2AFCE1377BD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3119471-08A1-4908-897E-5290E374801E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3119471-08A1-4908-897E-5290E374801E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3119471-08A1-4908-897E-5290E374801E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3119471-08A1-4908-897E-5290E374801E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57E5B7C2-AFAA-4DB6-9FEA-21E3C07FC652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57E5B7C2-AFAA-4DB6-9FEA-21E3C07FC652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57E5B7C2-AFAA-4DB6-9FEA-21E3C07FC652}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{57E5B7C2-AFAA-4DB6-9FEA-21E3C07FC652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57E5B7C2-AFAA-4DB6-9FEA-21E3C07FC652}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57E5B7C2-AFAA-4DB6-9FEA-21E3C07FC652}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F06F4BCF-1F7E-49D0-8EB1-286A4CFBDCD2} = {01636DB1-00A2-416B-8FDA-7E1B0F89709D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8D7C25EE-020C-4F8B-85DC-DDAE330D6A0F}
