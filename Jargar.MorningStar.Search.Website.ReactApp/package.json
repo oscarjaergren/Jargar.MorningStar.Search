@@ -6,13 +6,17 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "test": "react-scripts test",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predev": "node aspnetcore-https.js"
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
